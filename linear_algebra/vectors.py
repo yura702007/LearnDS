@@ -16,6 +16,21 @@ def subtract(v: Vector, w: Vector) -> Vector:
     return [a - b for a, b in zip(v, w)]
 
 
+def vectors_sum(vectors: List[Vector]) -> Vector:
+    """Суммирует все соответствующие элементы"""
+    # Проверить, что векторы не пустые
+    assert vectors, 'Векторы не предоставлены'
+
+    # Проверить, что все векторы одинакового размера
+    length_elem = len(vectors[0])
+    assert all(len(v) == length_elem for v in vectors), 'разные размеры'
+
+    return [
+        sum(vector[i] for vector in vectors)
+        for i in range(length_elem)
+    ]
+
+
 def main():
     # Создание вектора
     height_weight_age = [
@@ -35,6 +50,7 @@ def main():
 
     print(add(vector_1, vector_2))
     print(subtract(vector_1, vector_2))
+    print(vectors_sum([[1, 2], [3, 4], [5, 6], [7, 8]]))
 
 
 if __name__ == '__main__':
