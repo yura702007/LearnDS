@@ -16,6 +16,11 @@ def get_row(A: Matrix, i: int) -> Vector:
     return A[i]
 
 
+def get_column(A: Matrix, j: int) -> Vector:
+    """Возвращает j-ый столбец как тип Vector"""
+    return [i[j] for i in A]
+
+
 def main():
     A = [[1, 2, 3],
          [4, 5, 6]]
@@ -23,6 +28,8 @@ def main():
     print(shape(A))
     assert get_row(A, 1) == [4, 5, 6]
     print(get_row(A, 1))
+    assert get_column(A, 2) == [3, 6]
+    print(get_column(A, 2))
 
 
 if __name__ == '__main__':
