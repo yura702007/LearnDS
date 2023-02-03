@@ -48,6 +48,11 @@ def dot(v: Vector, w: Vector) -> float:
     return sum(i * j for i, j in zip(v, w))
 
 
+def sum_of_squares_vector(v: Vector) -> float:
+    """Вычисляет v_1 * v_1 + v_2 * v_2 + ... + v_n * v_n"""
+    return dot(v, v)
+
+
 def main():
     # Создание вектора
     height_weight_age = [
@@ -70,8 +75,9 @@ def main():
     print(subtract(vector_1, vector_2))
     print(vectors_sum([vector_1, vector_2, vector_3]))
     print(scalar_multiply(2, vector_1))
-    print(vector_mean([[1, 2], [3, 4], [5, 6]]))
+    print(vector_mean([vector_1, vector_2, vector_3]))
     print(dot(vector_1, vector_2))
+    print(sum_of_squares_vector(vector_1))
 
 
 if __name__ == '__main__':
