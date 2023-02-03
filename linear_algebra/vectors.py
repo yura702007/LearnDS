@@ -31,6 +31,11 @@ def vectors_sum(vectors: List[Vector]) -> Vector:
     ]
 
 
+def scalar_multiply(c: float, v: Vector) -> Vector:
+    """Умножает каждый элемент на c"""
+    return [c * w for w in v]
+
+
 def main():
     # Создание вектора
     height_weight_age = [
@@ -47,10 +52,12 @@ def main():
 
     vector_1 = [24, 15, 42]
     vector_2 = [12, 36, 65]
+    vector_3 = [21, 12, 34]
 
     print(add(vector_1, vector_2))
     print(subtract(vector_1, vector_2))
-    print(vectors_sum([[1, 2], [3, 4], [5, 6], [7, 8]]))
+    print(vectors_sum([vector_1, vector_2, vector_3]))
+    print(scalar_multiply(2, vector_1))
 
 
 if __name__ == '__main__':
