@@ -33,17 +33,32 @@ def make_matrix(num_rows: int,
             for i in range(num_rows)]  # создать один список для каждого i
 
 
+def identity_matrix(n: int) -> Matrix:
+    """
+    Возвращает (n * n) матрицу тождественности,
+    также именуемую единичной
+    """
+    return make_matrix(n, n, lambda i, j: 1 if i == j else 0)
+
+
 def main():
     A = [[1, 2, 3],
          [4, 5, 6]]
+
     assert shape(A) == (2, 3)  # 2 строки, 3 столбца
-    print(shape(A))
+    print('OK')
     assert get_row(A, 1) == [4, 5, 6]
-    print(get_row(A, 1))
+    print('OK')
     assert get_column(A, 2) == [3, 6]
-    print(get_column(A, 2))
+    print('OK')
     assert make_matrix(2, 2, lambda i, j: 1) == [[1, 1], [1, 1]]
-    print(make_matrix(2, 3, lambda i, j: 42))
+    print('OK')
+    assert identity_matrix(5) == [[1, 0, 0, 0, 0],
+                                  [0, 1, 0, 0, 0],
+                                  [0, 0, 1, 0, 0],
+                                  [0, 0, 0, 1, 0],
+                                  [0, 0, 0, 0, 1]]
+    print('OK')
 
 
 if __name__ == '__main__':
