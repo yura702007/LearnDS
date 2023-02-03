@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 # Инициализация класса Вектор
 Vector = List[float]
@@ -53,6 +54,13 @@ def sum_of_squares_vector(v: Vector) -> float:
     return dot(v, v)
 
 
+def magnitude_vector(v: Vector) -> float:
+    """Возвращает длину (магнитуду) вектора"""
+    # math.sqrt() - функция квадратного корня
+    return math.sqrt(sum_of_squares_vector(v))
+
+
+
 def main():
     # Создание вектора
     height_weight_age = [
@@ -78,6 +86,7 @@ def main():
     print(vector_mean([vector_1, vector_2, vector_3]))
     print(dot(vector_1, vector_2))
     print(sum_of_squares_vector(vector_1))
+    print(magnitude_vector(vector_1))
 
 
 if __name__ == '__main__':
