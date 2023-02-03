@@ -1,9 +1,11 @@
 from typing import List
 
+# Инициализация класса Вектор
+Vector = List[float]
+
 
 def main():
     # Создание вектора
-    Vector = List[float]
     height_weight_age = [
         175,  # Сантиметры
         68,  # Килограммы
