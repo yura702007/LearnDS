@@ -1,4 +1,4 @@
-from typing import Tuple, List
+from typing import Tuple, List, Callable
 from vectors import Vector
 
 Matrix = List[List[float]]
@@ -21,6 +21,18 @@ def get_column(A: Matrix, j: int) -> Vector:
     return [i[j] for i in A]
 
 
+def make_matrix(num_rows: int,
+                num_cols: int,
+                entry_fn: Callable[[int, int], float]) -> Matrix:
+    """
+    Возвращает матрицу num_rows * num_cols,
+    чей (i, j) элемент является функцией entry_fn(i, i)
+    """
+    return [[entry_fn(i, j)  # создать список с учётом i
+             for j in range(num_cols)]  # [entry(i, 0)...]
+            for i in range(num_rows)]  # создать один список для каждого i
+
+
 def main():
     A = [[1, 2, 3],
          [4, 5, 6]]
@@ -30,6 +42,8 @@ def main():
     print(get_row(A, 1))
     assert get_column(A, 2) == [3, 6]
     print(get_column(A, 2))
+    assert make_matrix(2, 2, lambda i, j: 1) == [[1, 1], [1, 1]]
+    print(make_matrix(2, 3, lambda i, j: 42))
 
 
 if __name__ == '__main__':
