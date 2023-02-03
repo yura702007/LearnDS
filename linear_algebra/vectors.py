@@ -42,6 +42,12 @@ def vector_mean(vectors: List[Vector]) -> Vector:
     return scalar_multiply(1 / n, vectors_sum(vectors))
 
 
+def dot(v: Vector, w: Vector) -> float:
+    """Вычисляет v_1 * w_1 + v_2 * w_2 + ... + v_n * w_n"""
+    assert len(v) == len(w), 'Векторы должны иметь одинаковую длину'
+    return sum(i * j for i, j in zip(v, w))
+
+
 def main():
     # Создание вектора
     height_weight_age = [
@@ -65,6 +71,7 @@ def main():
     print(vectors_sum([vector_1, vector_2, vector_3]))
     print(scalar_multiply(2, vector_1))
     print(vector_mean([[1, 2], [3, 4], [5, 6]]))
+    print(dot(vector_1, vector_2))
 
 
 if __name__ == '__main__':
