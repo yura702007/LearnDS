@@ -60,6 +60,17 @@ def magnitude_vector(v: Vector) -> float:
     return math.sqrt(sum_of_squares_vector(v))
 
 
+# Квадрат расстояния между 2-мя векторами
+def square_distance_vectors(v: Vector, w: Vector) -> float:
+    """Вычисляет (v_1 - w_1) ** 2 + (v_2 - w_2) ** 2 + ... + (v_n - w_n) ** 2"""
+    return sum_of_squares_vector(subtract(v, w))
+
+
+# Расстояние между 2-мя векторами
+def distance(v: Vector, w: Vector) -> float:
+    """Вычисляет расстояние между v и w"""
+    return magnitude_vector(subtract(v, w))
+
 
 def main():
     # Создание вектора
